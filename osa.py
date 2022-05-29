@@ -12,25 +12,24 @@ def sortDirectory(directory, func=shutil.copy):
     # for each entry in root
     for entry in root.iterdir():
         # if not file exit the program
-        if not entry.is_file():
-            continue
-        name = entry.stem
-        ext = entry.suffix[1:]
-        print(ext)
-        # make output folder out and ext
-        Path(Path("out") / Path(ext)).mkdir(parents=True, exist_ok=True)
-        
-        # if Path(Path("out") / ext / entry.name).exists():
-        #     count = 1
-        #     for newfile in Path(Path("out/ext") / entry.name).iterdir():
-        #         if name == "_".join(newfile.split('.')[0].split('_')[:-1]):
-        #             count += 1
-        #     outfile = name+'_'+str(count)+'.'+ext
-        # else:
-        #     output = entry
-        # print('File:', Path(root / ext / entry.name), '->', Path(Path("out") / ext / entry.name))
-        func(Path(root),Path("out/ext/entry.name"))
-        print('moving'+ext)
+        if entry.is_file():
+            name = entry.stem
+            ext = entry.suffix[1:]
+            print(ext)
+            # make output folder out and ext
+            Path(Path("out") / Path(ext)).mkdir(parents=True, exist_ok=True)
+            
+            if Path(Path("out") / ext / entry.name).exists():
+                count = 1
+                for newfile in Path(Path("out/ext") / entry.name).iterdir():
+                    if name == "_".join(newfile.split('.')[0].split('_')[:-1]):
+                        count += 1
+                outfile = name+'_'+str(count)+'.'+ext
+            else:
+                output = entry
+            print('File:', Path(root / ext / entry.name), '->', Path(Path("out") / ext / entry.name))
+            func(Path(root),Path("out/ext/entry.name"))
+            print('moving'+ext)
     return 0
 
 def main():
