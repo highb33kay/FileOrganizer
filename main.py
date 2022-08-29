@@ -3,6 +3,21 @@ from pathlib import Path
 from shutil import copy
 from sys import argv
 
+# def main entry point
+
+
+def main():
+    # check if there is an argument
+    if len(argv) == 1:
+        print("Please enter a directory")
+        return 1
+    # check if there is a directory to sort
+    if len(argv) < 2:
+        print("No directory to sort")
+        return 1
+    # sort the directory
+    return sortDirectory(argv[1])
+
 
 def sortDirectory(directory, func=copy):
     # declare the directory
