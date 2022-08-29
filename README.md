@@ -2,4 +2,12 @@
 
 ## A File Organizer ApFile with Python Interpreter
 
-I am still trying to figure out how to do this & any help is appreciated
+works as intended. 
+
+## Road Map
+
+- [x] Create a file organizer
+- [ ] Create a GUI
+- [ ] Seperate the file organizer into a module
+- [ ] File compression
+- [ ] File encryption
